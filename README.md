@@ -17,3 +17,10 @@ rails db:migrate -> create schema
 Gems can be found at: rubygems.org
 
 Gem devise is for user management
+
+rails routes URI Patter -> to see which method to use and which routes to copy
+
+devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+end
+--> for devise_sign_out
