@@ -15,3 +15,5 @@ rails g scaffold 'modulname' columname:datatype -> creates a scaffold for CRUD d
 rails db:migrate -> create schema
 
 Gems can be found at: rubygems.org
+
+Gem devise is for user management
