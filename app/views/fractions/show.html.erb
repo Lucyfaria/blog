@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @fraction %>
+
+<div>
+  <%= link_to "Edit this fraction", edit_fraction_path(@fraction) %> |
+  <%= link_to "Back to fractions", fractions_path %>
+
+  <%= button_to "Destroy this fraction", @fraction, method: :delete %>
+</div>

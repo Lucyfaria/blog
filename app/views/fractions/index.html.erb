@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Fractions</h1>
+
+<div id="fractions">
+  <% @fractions.each do |fraction| %>
+    <%= render fraction %>
+    <p>
+      <%= link_to "Show this fraction", fraction %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New fraction", new_fraction_path %>
