@@ -3,8 +3,8 @@
 <%= render @fraction %>
 
 <div>
-  <%= link_to "Edit this fraction", edit_fraction_path(@fraction) %> |
-  <%= link_to "Back to fractions", fractions_path %>
-
-  <%= button_to "Destroy this fraction", @fraction, method: :delete %>
+  <%= link_to "Edit this fraction", edit_fraction_path(@fraction), class:"btn btn-outline-warning btn-sm"%>
+  <%= link_to "Back to fractions", fractions_path, class:"btn btn-outline-info btn-sm" %>
+  <br/><br/>
+  <%= button_to "Destroy this fraction", @fraction, method: :delete, class:"btn btn-outline-danger btn-sm"%>
 </div>

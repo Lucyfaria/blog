@@ -1,10 +1,11 @@
 <div id="<%= dom_id fraction %>">
-  <p>
-    <strong>Name:</strong>
-    <%= fraction.name %>
-  </p>
 
-  <p>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= fraction.name %></h5>
+    <h6 class="card-subtitle mb-2 text-muted">Vertrag bis: <%= fraction.contract %></h6>
+    
+     <p>
     <strong>Primary:</strong>
     <%= fraction.primary %>
   </p>
@@ -38,5 +39,12 @@
     <strong>Plate:</strong>
     <%= fraction.plate %>
   </p>
+    <%# <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a> %>
+  </div>
+  
+</div>
+  <br/>
+
 
 </div>

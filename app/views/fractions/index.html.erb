@@ -1,14 +1,47 @@
-<p style="color: green"><%= notice %></p>
 
-<h1>Fractions</h1>
+<h1>Fraktionen</h1>
 
-<div id="fractions">
-  <% @fractions.each do |fraction| %>
-    <%= render fraction %>
-    <p>
-      <%= link_to "Show this fraction", fraction %>
-    </p>
-  <% end %>
-</div>
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Primärfarbe</th>
+        <th scope="col">Sekundärfarbe</th>
+        <th scope="col">Perleffekt</th>
+        <th scope="col">Reifenrauch</th>
+        <th scope="col">Unterbodenbelichtung</th>
+        <th scope="col">Vertrag bis</th>
+        <th scope="col">inkl. Kennzeichen</th>
+        <th> </th>
+        <th> </th>
+        <th> </th>
+      <tr>
+    </thead>
+  <tbody>
+    <tbody>
+      <% @fractions.each do |fraction| %>
+        
+        <tr>
+                   
+          <td><%= fraction.name %></td>
+          <td><%= fraction.primary %></td>
+          <td><%= fraction.secondary %></td>
+          <td><%= fraction.pearl %></td>
+          <td><%= fraction.smoke %></td>
+          <td><%= fraction.lights %></td>
+          <td><%= fraction.contract %></td>
+          <td><%= fraction.plate %></td>
+          <td><%= link_to 'Show', fraction, class: "btn btn-outline-info btn-sm" %></td>
+          <td><%= link_to 'Edit', edit_fraction_path(fraction), class: "btn btn-outline-warning btn-sm" %></td>
+          <td><%= link_to 'Delete', fraction, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %></td>
+          
+        </tr>
+       <% end %>
+      
+    </tbody>
+  </table>
 
-<%= link_to "New fraction", new_fraction_path %>
+  <br/>
+
+  <%= link_to 'New fraction', new_fraction_path, class:"btn btn-secondary" %>
+
