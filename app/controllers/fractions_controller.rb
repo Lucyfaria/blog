@@ -25,7 +25,7 @@ class FractionsController < ApplicationController
 
     respond_to do |format|
       if @fraction.save
-        format.html { redirect_to fraction_url(@fraction), notice: "Fraction was successfully created." }
+        format.html { redirect_to fraction_url(@fraction), notice: "Fraktion wurde erfolgreich erstellt." }
         format.json { render :show, status: :created, location: @fraction }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class FractionsController < ApplicationController
   def update
     respond_to do |format|
       if @fraction.update(fraction_params)
-        format.html { redirect_to fraction_url(@fraction), notice: "Fraction was successfully updated." }
+        format.html { redirect_to fraction_url(@fraction), notice: "Fraktion wurde erfolgreich bearbeitet." }
         format.json { render :show, status: :ok, location: @fraction }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class FractionsController < ApplicationController
     @fraction.destroy
 
     respond_to do |format|
-      format.html { redirect_to fractions_url, notice: "Fraction was successfully destroyed." }
+      format.html { redirect_to fractions_url, notice: "Fraktion wurde erfolgreich gelöscht." }
       format.json { head :no_content }
     end
   end

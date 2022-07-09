@@ -13,3 +13,5 @@ railes routes -> shows all routes
 rails g scaffold 'modulname' columname:datatype -> creates a scaffold for CRUD database
 
 rails db:migrate -> create schema
+
+Gems can be found at: rubygems.org

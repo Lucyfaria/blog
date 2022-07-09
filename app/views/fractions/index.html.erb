@@ -31,9 +31,9 @@
           <td><%= fraction.lights %></td>
           <td><%= fraction.contract %></td>
           <td><%= fraction.plate %></td>
-          <td><%= link_to 'Show', fraction, class: "btn btn-outline-info btn-sm" %></td>
-          <td><%= link_to 'Edit', edit_fraction_path(fraction), class: "btn btn-outline-warning btn-sm" %></td>
-          <td><%= link_to 'Delete', fraction, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %></td>
+          <td><%= link_to 'Zeigen', fraction, class: "btn btn-outline-info btn-sm" %></td>
+          <td><%= link_to 'Bearbeiten', edit_fraction_path(fraction), class: "btn btn-outline-warning btn-sm" %></td>
+          <td><%= link_to 'Löschen', fraction, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %></td>
           
         </tr>
        <% end %>
@@ -43,5 +43,5 @@
 
   <br/>
 
-  <%= link_to 'New fraction', new_fraction_path, class:"btn btn-secondary" %>
+  <%= link_to 'Neue Fraktion', new_fraction_path, class:"btn btn-secondary" %>
 

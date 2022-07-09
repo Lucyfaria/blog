@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :fractions
   # get 'fractions'
   root 'home#index'
