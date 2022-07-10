@@ -1,0 +1,360 @@
+<h1>Hunchos Preisliste</h1>
+<div id="main">
+        <h2>LNV PREISLISTE - v1.3 N - HUNCHO EDITION</h2>
+
+
+        <input type="radio" id="normal" name="drone">
+        <label for="normal">&nbsp;Shop Fahrzeuge</label>
+        <br>
+
+
+
+        <input type="radio" id="import" name="drone">
+        <label for="import">&nbsp;Import Fahrzeuge</label>
+        <br>
+
+
+        <input type="radio" id="quad_motorrad" name="drone">
+        <label for="quad_motorrad">&nbsp;Motorräder | Fahrräder</label>
+        <br>
+
+
+        <input type="radio" id="heli" name="drone">
+        <label for="heli">&nbsp;Helikopter | Flugzeuge | Boote </label>
+        <br>
+        
+        <br>
+        <!-- <div class="col-6"> -->
+        <div id="extra">
+        <%= form_with model: @fraction do |f| %>
+
+        <%# Grouped select %>
+        <%# TODO: modify %>
+        <%# <%= f.select :name,
+            {
+                "Europe" => [ ["Berlin", "BE"], ["Madrid", "MD"] ],
+                "North America" => [ ["Chicago", "CHI"] ],
+            },
+            selected: "CHI" %> 
+        <%= f.collection_select :name, Fraction.order(:name), :id, :name %>
+        <%# TODO: Primärfarbe etc based on selection %>
+
+        
+        </div>
+            <%# <label for="frak">Zuordnung:</label> %>
+            <%# <select name="frak" id="frak" onchange="Frakswitch(this);">
+                <!-- HIER BEARBEITEN -->
+                <% @fractions.each do |fraction| %>
+                <%# <option value=<% fraction.name><%= fraction.name </option> %>
+                <%# <% end %>               
+
+            <%# </select> %>
+        
+        <!-- <br>
+            <br>
+            <br>
+            <br> -->
+        <div id="nextra">
+            <text id="primary">Primärfarbe:</text><br>
+            <text id="secondary">Sekundärfarbe</text><br>
+            <text id="pearl">Perleffekt</text><br>
+            <text id="unten">Unterbodenbeleuchtung</text><br>
+            <text id="wheels">Reifenrauch</text><br>
+        <% end %>
+
+            <%# <script>
+                
+                function Frakswitch(sel) {
+                    // alert(sel.options[sel.selectedIndex].text);
+                    var frak = sel.options[sel.selectedIndex].text;
+                    switch (frak) {
+                        default:
+                            document.getElementById("primary").innerText = "Primär: "
+                            document.getElementById("secondary").innerText = "Sekundär: "
+                            document.getElementById("pearl").innerText = "Perleffekt: "
+                            document.getElementById("unten").innerText = "Unterboden: "
+                            document.getElementById("wheels").innerText = "Reifenqualm: "
+                            break;
+                            // HIER BEARBEITEN	
+                        case <% fraction.name%>:
+                            <%# document.getElementById("primary").innerText = "Primär: <% fraction.primary%>"
+                            <%# document.getElementById("secondary").innerText = "Sekundär: <% fraction.secondary%>" 
+                            <%# document.getElementById("pearl").innerText = "Perleffekt: <% fraction.pearl%>" 
+                            <%# document.getElementById("unten").innerText = "Unterboden: <% fraction.lights%>" 
+                            <%# document.getElementById("wheels").innerText = "Reifenqualm:  <% fraction.smoke%>" 
+                            <%# break; %> 
+
+               
+        </div>
+        
+        <br><br>
+
+        <hr>
+        <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+        
+        <h3>Upgrades</h3>
+
+
+
+
+        <input type="checkbox" id="bremsen" name="bremsen">
+        <label for="bremsen">&nbsp;Bremsen</label>
+        <br>
+
+
+
+        <input type="checkbox" id="federung" name="federung">
+        <label for="federung">&nbsp;Federung</label>
+        <br>
+
+
+
+        <input type="checkbox" id="getriebe" name="getriebe">
+        <label for="getriebe">&nbsp;Getriebe</label>
+        <br>
+
+
+
+        <input type="checkbox" id="motor" name="motor">
+        <label for="motor">&nbsp;Motor</label>
+        <br>
+
+
+
+        <input type="checkbox" id="turbo" name="turbo">
+        <label for="turbo">&nbsp;Turbo</label>
+        <br>
+
+
+
+        <input type="checkbox" id="fulltune" name="fulltune">
+        <label for="fulltune">&nbsp;Fulltune (Bremsen, (Federung), Getriebe, Motor, Turbo)</label>
+        <br>
+
+
+        <input type="checkbox" id="panzerung" name="panzerung">
+        <label for="panzerung">&nbsp;Panzerung</label>
+        <br>
+
+        <hr>
+
+        <h3><a href="javascript:toggle('lowrider')" style="color:black;">Lowrider</a></h3>
+        <div id="lowrider" style="display:none">
+            <input type="checkbox" id="antennen" name="antennen">
+            <label for="antennen">&nbsp;Antennen</label>
+            <br>
+
+
+
+            <input type="checkbox" id="bodenabdeckung" name="bodenabdeckung">
+            <label for="bodenabdeckung">&nbsp;Bodenabdeckung</label>
+            <br>
+
+
+
+
+            <input type="checkbox" id="dashboards" name="dashboards">
+            <label for="dashboards">&nbsp;Dashboards</label>
+            <br>
+
+
+
+            <input type="checkbox" id="deko" name="deko">
+            <label for="deko">&nbsp;Dekoration</label>
+            <br>
+
+
+            <input type="checkbox" id="fenster" name="fenster">
+            <label for="fenster">&nbsp;Fenster</label>
+            <br>
+
+
+
+            <input type="checkbox" id="hydraulik" name="hydraulik">
+            <label for="hydraulik">&nbsp;Hydraulik</label>
+            <br>
+
+
+
+            <input type="checkbox" id="interieur" name="interieur">
+            <label for="interieur">&nbsp;Interieur</label>
+            <br>
+
+
+            <input type="checkbox" id="kofferraum" name="kofferraum">
+            <label for="kofferraum">&nbsp;Kofferraum</label>
+            <br>
+
+
+            <input type="checkbox" id="lautsprecher" name="lautsprecher">
+            <label for="lautsprecher">&nbsp;Lautsprecher</label>
+            <br>
+
+
+            <input type="checkbox" id="lautsprecher_tuer" name="lautsprecher_tuer">
+            <label for="lautsprecher_tuer">&nbsp;Lautsprecher Tür</label>
+            <br>
+
+
+            <input type="checkbox" id="lenkrad" name="lenkrad">
+            <label for="lenkrad">&nbsp;Lenkrad</label>
+            <br>
+
+
+            <input type="checkbox" id="luftfilter" name="luftfilter">
+            <label for="luftfilter">&nbsp;Luftfilter</label>
+            <br>
+
+
+            <input type="checkbox" id="motorblock" name="motorblock">
+            <label for="motorblock">&nbsp;Motorblock</label>
+            <br>
+
+
+            <input type="checkbox" id="quarterdeck" name="quarterdeck">
+            <label for="quarterdeck">&nbsp;Quarterdeck</label>
+            <br>
+
+
+            <input type="checkbox" id="schaltknueppel" name="schaltknueppel">
+            <label for="schaltknueppel">&nbsp;Schaltknüppel</label>
+            <br>
+
+
+            <input type="checkbox" id="sitze" name="sitze">
+            <label for="sitze">&nbsp;Sitze</label>
+            <br>
+
+
+            <input type="checkbox" id="streben" name="streben">
+            <label for="streben">&nbsp;Streben</label>
+            <br>
+
+
+            <input type="checkbox" id="tacho" name="tacho">
+            <label for="tacho">&nbsp;Tacho</label>
+            <br>
+
+
+
+            <input type="checkbox" id="tank" name="tank">
+            <label for="tank">&nbsp;Tank</label>
+            <br>
+
+            <hr>
+        </div>
+        <h3>Bei fast jedem Fahrzeug möglich!</h3>
+
+        <label for="fahrzeugteile">Fahrzeugteile (<span id="number">0</span>)</label>
+        <button type="button" onClick="addPart();">+ 1</button>
+        <button type="button" onClick="subPart();">- 1</button><br><br><br>
+
+
+        <label for="felgen">Felgen</label>
+        <select name="felgen" id="felgen">
+            <option value="none">None</option>
+            <option value="normale">Normal</option>
+            <option value="import">Import</option>
+
+        </select><br> <br>
+
+
+        <input type="checkbox" id="reifenfarbe" name="reifenfarbe">
+        <label for="reifenfarbe">&nbsp;Reifenfarbe</label>
+        <br>
+
+
+        <input type="checkbox" id="reifenqualm" name="reifenqualm">
+        <label for="reifenqualm">&nbsp;Reifenqualm</label>
+        <br><br>
+
+
+
+        <input type="checkbox" id="prim" name="prim">
+        <label for="prim">&nbsp;Lackierung Prim.</label>
+        <br>
+
+
+        <input type="checkbox" id="sek" name="sek">
+        <label for="sek">&nbsp;Lackierung Sek.</label>
+        <br>
+
+
+        <input type="checkbox" id="perleffekt" name="perleffekt">
+        <label for="perleffekt">&nbsp;Perleffekt</label>
+        <br><br>
+
+
+        <input type="checkbox" id="unterboden" name="unterboden">
+        <label for="unterboden">&nbsp;Unterbodenbeleuchtung</label>
+        <br>
+
+
+        <input type="checkbox" id="fenstertönung" name="fenstertönung">
+        <label for="fenstertönung">&nbsp;Fenstertönung</label>
+        <br>
+
+
+        <input type="checkbox" id="design" name="design">
+        <label for="design">&nbsp;Sticker</label>
+        <br>
+
+
+
+
+        <input type="checkbox" id="hupen" name="hupen">
+        <label for="hupen">&nbsp;Hupen</label>
+        <br>
+
+
+        <input type="checkbox" id="xenon" name="xenon">
+        <label for="xenon">&nbsp;Xenon (WIRD DIREKT EINGEBAUT!!)</label>
+        <br>
+
+
+        <input type="checkbox" id="nummernschild" name="nummernschild">
+        <label for="nummernschild">&nbsp;Nummernschild (Farbe)</label>
+        <br>
+        <hr><br>
+
+        <input type="checkbox" id="kennzeichen5" name="kennzeichen5">
+        <label for="kennzeichen5">&nbsp;Custom-Kennzeichen</label>
+        <br>
+
+
+        <hr><br>
+
+        <input type="checkbox" id="rabatt10" name="rabatt10">
+        <label for="rabatt10">&nbsp;VIP+: 20% Rabatt (VIP-Zivi) </label>
+        <br>
+
+        <input type="checkbox" id="rabatt20" name="rabatt20">
+        <label for="rabatt20">&nbsp;VIP+: 30% Rabatt</label>
+        <br>
+
+
+
+        <input type="checkbox" id="rabatt30" name="rabatt30">
+        <label for="rabatt30">&nbsp;VIP+: 40% Rabatt</label>
+        <br>
+
+
+        <hr>
+        <br><br>
+        <label for="name">Name des
+            Kunden:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input style="font-size: 10px" type="text" id="name" name="name" size="20"> <br><br>
+        <label for="kn">Dienstnummer:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input style="font-size: 10px" type="text" id="kn" name="kn" size="2"><br>
+
+
+
+
+        <label for="rechnung">Rechnung für D-Funk:&nbsp;</label>
+        <input type="checkbox" id="rechnung" name="rechnung"><br>
+
+
+    </div>
+    <div id="final-div">
+        <span id="final">0</span>
+    </div>

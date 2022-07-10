@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  get 'pricelist/index'
   devise_for :users
   resources :fractions
   # get 'fractions'
   root 'home#index'
-
+  
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
