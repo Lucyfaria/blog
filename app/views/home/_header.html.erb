@@ -6,14 +6,16 @@
       <ul class="navbar-nav">
         
  <%# TODO: Pricelist to if user_signed_in %>
-        <% if user_signed_in? %>
           
+        <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to 'Preisliste', pricelist_index_path, class:"nav-link"%>
         </li>
+        <% if current_user.try(:admin?)%>
         <li class="nav-item">
             <%= link_to 'Fraktionen', fractions_path, class:"nav-link"%>
-          </li>
+        </li>
+        <% end%>
         <li class="nav-item">
             <%= link_to "Ausloggen", destroy_user_session_path, :method => :delete, class:"nav-link" %>
           </li>
