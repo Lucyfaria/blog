@@ -1,3 +1,6 @@
+<% content_for :head do %>
+  <%= javascript_import_module_tag "select" %>
+<% end %>
 <h1>Hunchos Preisliste</h1>
 <div id="main">
         <h2>LNV PREISLISTE - v1.3 N - HUNCHO EDITION</h2>
@@ -36,7 +39,7 @@
                 "North America" => [ ["Chicago", "CHI"] ],
             },
             selected: "CHI" %> 
-        <%= f.collection_select :name, Fraction.order(:name), :id, :name %>
+        <%= f.collection_select :fraction_id, Fraction.order(:name), :id, :name, prompt: true %>
         <%# TODO: Primärfarbe etc based on selection %>
 
         
@@ -77,7 +80,7 @@
                             break;
                             // HIER BEARBEITEN	
                         case <% fraction.name%>:
-                            <%# document.getElementById("primary").innerText = "Primär: <% fraction.primary%>"
+                            <%# document.getElementById("primary").innerText = "Primär:blau"
                             <%# document.getElementById("secondary").innerText = "Sekundär: <% fraction.secondary%>" 
                             <%# document.getElementById("pearl").innerText = "Perleffekt: <% fraction.pearl%>" 
                             <%# document.getElementById("unten").innerText = "Unterboden: <% fraction.lights%>" 
