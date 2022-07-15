@@ -1,6 +1,7 @@
-<h1>Hunchos Preisliste</h1>
+<%# <h1>Hunchos Preisliste</h1> %>
 <div id="main">
-        <h2>LNV PREISLISTE - v1.3 N - HUNCHO EDITION</h2>
+        <h3> Fahrzeugkategorie </h3>
+        <%# <h2>LNV PREISLISTE - v1.3 N - HUNCHO EDITION</h2> %>
 
         <input type="radio" id="normal" name="drone">
         <label for="normal">&nbsp;Shop Fahrzeuge</label>
@@ -18,7 +19,10 @@
         <label for="heli">&nbsp;Helikopter | Flugzeuge | Boote </label>
         <br>
         
-        <br>
+        <hr>
+        
+        <h3>Zugehörigkeit</h3>
+    
         <div id="extra">
         <%= form_with model: @fraction do |f| %>
 
@@ -31,30 +35,45 @@
             },
             selected: "CHI" %> 
         <%= f.collection_select :fraction_id, Fraction.order(:name), :id, :name,{ prompt: "Zugehörigkeit auswählen" } ,{onchange: "Frakswitch(this);"} %>
-        <%# TODO: Primärfarbe etc based on selection %>
-
-        
+            <% end %>
+            <br>
         </div>
-            <%# <label for="frak">Zuordnung:</label> %>
-            <%# <select name="frak" id="frak" onchange="Frakswitch(this);">
-                <!-- HIER BEARBEITEN -->
-                <% @fractions.each do |fraction| %>
-                <%# <option value=<% fraction.name><%= fraction.name </option> %>
-                <%# <% end %>               
-
-            <%# </select> %>
-        
-        <!-- <br>
-            <br>
-            <br>
-            <br> -->
+            
         <div id="nextra">
-            <p id="primary">Primärfarbe:</p>
-            <p id="secondary">Sekundärfarbe:</p>
-            <p id="pearl">Perleffekt:</p>
-            <p id="unten">Unterbodenbeleuchtung:</p>
-            <p id="wheels">Reifenrauch:</p>
-        <% end %>
+        <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Primärfarbe</th>
+        <th scope="col">Sekundärfarbe</th>
+        <th scope="col">Perleffekt</th>
+        <th scope="col">Reifenrauch</th>
+        <th scope="col">Unterbodenbelichtung</th>
+        <th scope="col">Vertrag bis</th>
+        <th scope="col">inkl. Kennzeichen</th>
+      <tr>
+    </thead>
+    <tbody>
+     <tr>
+                   
+          <td id="primary"></td>
+          <td id="secondary"></td>
+          <td id="pearl"></td>
+          <td id="lights"></td>
+          <td id="smoke"></td>
+          <td id="contract"></td>
+          <td id="plate"></td>
+          
+        </tr>
+      
+    </tbody>
+  </table>
+
+            <!-- <p class="mb-0" id="primary">Primärfarbe:</p>
+            <p class="mb-0" id="secondary">Sekundärfarbe:</p>
+            <p class="mb-0" id="pearl">Perleffekt:</p>
+            <p class="mb-0" id="unten">Unterbodenbeleuchtung:</p>
+            <p class="mb-0" id="wheels">Reifenrauch:</p> -->
+        
             <script>
                 var fractions = <%= raw @fractions.to_json %>;
                 
@@ -62,11 +81,13 @@
                     
                     var frak = sel.options[sel.selectedIndex].text;
                     const fractionObject = fractions[frak];
-                    document.getElementById("primary").innerText = "Primärfarbe: " + fractionObject.primary;
-                    document.getElementById("secondary").innerText = "Sekundärfarbe: " + fractionObject.secondary;
-                    document.getElementById("pearl").innerText = "Perleffekt: " + fractionObject.pearl;
-                    document.getElementById("unten").innerText = "Unterbodenbeleuchtung: " + fractionObject.lights;
-                    document.getElementById("wheels").innerText = "Reifenrauch: " + fractionObject.smoke;
+                    document.getElementById("primary").innerText = fractionObject.primary;
+                    document.getElementById("secondary").innerText = fractionObject.secondary;
+                    document.getElementById("pearl").innerText = fractionObject.pearl;
+                    document.getElementById("lights").innerText = fractionObject.lights;
+                    document.getElementById("smoke").innerText = fractionObject.smoke;
+                    document.getElementById("contract").innerText = fractionObject.contract;
+                    document.getElementById("plate").innerText = fractionObject.plate;
                     /*
                     switch (frak) {
                         default:
@@ -89,8 +110,6 @@
             </script>
                
         </div>
-        
-        <br><br>
 
         <hr>
         <h3>Upgrades</h3>

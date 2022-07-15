@@ -8,7 +8,9 @@ class PricelistController < ApplicationController
           secondary: fraction.secondary,
           pearl: fraction.pearl,
           lights: fraction.lights,
-          smoke: fraction.smoke
+          smoke: fraction.smoke,
+          contract: fraction.contract,
+          plate: fraction.plate
         }
       ]
     end]
