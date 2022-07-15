@@ -1,6 +1,3 @@
-<% content_for :head do %>
-  <%= javascript_import_module_tag "select" %>
-<% end %>
 <h1>Hunchos Preisliste</h1>
 <div id="main">
         <h2>LNV PREISLISTE - v1.3 N - HUNCHO EDITION</h2>
@@ -52,13 +49,12 @@
             <br>
             <br> -->
         <div id="nextra">
-            <text id="primary">Primärfarbe:</text><br>
-            <text id="secondary">Sekundärfarbe: </text><br>
-            <text id="pearl">Perleffekt</text><br>
-            <text id="unten">Unterbodenbeleuchtung</text><br>
-            <text id="wheels">Reifenrauch</text><br>
+            <p id="primary">Primärfarbe:</p>
+            <p id="secondary">Sekundärfarbe:</p>
+            <p id="pearl">Perleffekt:</p>
+            <p id="unten">Unterbodenbeleuchtung:</p>
+            <p id="wheels">Reifenrauch:</p>
         <% end %>
-        <%= javascript_tag "console.log('Test')"%>
             <script>
                 var fractions = <%= raw @fractions.to_json %>;
                 
@@ -66,7 +62,11 @@
                     
                     var frak = sel.options[sel.selectedIndex].text;
                     const fractionObject = fractions[frak];
-                    document.getElementById("primary").innerText = fractionObject.primary;
+                    document.getElementById("primary").innerText = "Primärfarbe: " + fractionObject.primary;
+                    document.getElementById("secondary").innerText = "Sekundärfarbe: " + fractionObject.secondary;
+                    document.getElementById("pearl").innerText = "Perleffekt: " + fractionObject.pearl;
+                    document.getElementById("unten").innerText = "Unterbodenbeleuchtung: " + fractionObject.lights;
+                    document.getElementById("wheels").innerText = "Reifenrauch: " + fractionObject.smoke;
                     /*
                     switch (frak) {
                         default:

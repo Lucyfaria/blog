@@ -4,7 +4,11 @@ class PricelistController < ApplicationController
       [
         fraction.name,
         {
-          primary: fraction.primary
+          primary: fraction.primary,
+          secondary: fraction.secondary,
+          pearl: fraction.pearl,
+          lights: fraction.lights,
+          smoke: fraction.smoke
         }
       ]
     end]
