@@ -33,7 +33,7 @@
                 "North America" => [ ["Chicago", "CHI"] ],
             },
             selected: "CHI" %> 
-        <%= f.collection_select :fraction_id, Fraction.order(:name), :id, :name, prompt: true %>
+        <%= f.collection_select :fraction_id, Fraction.order(:name), :id, :name,{ prompt: "Zugehörigkeit auswählen" } ,{onchange: "Frakswitch(this);"} %>
         <%# TODO: Primärfarbe etc based on selection %>
 
         
@@ -53,17 +53,21 @@
             <br> -->
         <div id="nextra">
             <text id="primary">Primärfarbe:</text><br>
-            <text id="secondary">Sekundärfarbe</text><br>
+            <text id="secondary">Sekundärfarbe: </text><br>
             <text id="pearl">Perleffekt</text><br>
             <text id="unten">Unterbodenbeleuchtung</text><br>
             <text id="wheels">Reifenrauch</text><br>
         <% end %>
-
-            <%# <script>
+        <%= javascript_tag "console.log('Test')"%>
+            <script>
+                var fractions = <%= raw @fractions.to_json %>;
                 
                 function Frakswitch(sel) {
-                    // alert(sel.options[sel.selectedIndex].text);
+                    
                     var frak = sel.options[sel.selectedIndex].text;
+                    const fractionObject = fractions[frak];
+                    document.getElementById("primary").innerText = fractionObject.primary;
+                    /*
                     switch (frak) {
                         default:
                             document.getElementById("primary").innerText = "Primär: "
@@ -73,14 +77,16 @@
                             document.getElementById("wheels").innerText = "Reifenqualm: "
                             break;
                             // HIER BEARBEITEN	
-                        case <% fraction.name%>:
-                            <%# document.getElementById("primary").innerText = "Primär:blau"
-                            <%# document.getElementById("secondary").innerText = "Sekundär: <% fraction.secondary%>" 
-                            <%# document.getElementById("pearl").innerText = "Perleffekt: <% fraction.pearl%>" 
-                            <%# document.getElementById("unten").innerText = "Unterboden: <% fraction.lights%>" 
-                            <%# document.getElementById("wheels").innerText = "Reifenqualm:  <% fraction.smoke%>" 
-                            <%# break; %> 
-
+                        case "Ballas":
+                            document.getElementById("primary").innerText = "Primär:blau"
+                            document.getElementById("secondary").innerText = "Sekundär: test" 
+                            document.getElementById("pearl").innerText = "Perleffekt: " 
+                            document.getElementById("unten").innerText = "Unterboden: " 
+                            document.getElementById("wheels").innerText = "Reifenqualm:  " 
+                            break;
+                    }*/
+                }
+            </script>
                
         </div>
         
