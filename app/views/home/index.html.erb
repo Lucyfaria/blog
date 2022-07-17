@@ -1,1 +1,8 @@
+<%= stylesheet_link_tag "home", "data-turbo-track": "reload" %>
+<% if user_signed_in? %>
+
+<% else %>
+
 HOMEPAGE NOT LOGGED IN
+
+<% end %>

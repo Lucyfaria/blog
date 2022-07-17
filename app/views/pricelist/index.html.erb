@@ -1,4 +1,5 @@
 <!-- <h1>Hunchos Preisliste</h1> -->
+<%= stylesheet_link_tag "pricelist", "data-turbo-track": "reload" %>
 <div id="main">
     <div id="Fahrzeugkategorie">
         <div class="row align-items-center">
@@ -20,7 +21,7 @@
             </div>
         </div>
     </div>
-<br>
+    <br>
     <div id="Zuordnung">
         <div class="row align-items-center">
             <div class="col" id="Headline">
@@ -56,7 +57,7 @@
         </div>
      
         <br>
-        <table class="table table-striped table-bordered table-hover">
+        <table class="table">
         <thead>
             <tr>
                 <th scope="col">Primärfarbe</th>
@@ -86,12 +87,33 @@
         Zusätzliche Informationen werden hier in einer Textbox stehen... irgendwann 
         <%# TODO: Textbox erstellen, Add column further_info to fractions %>
     </div>
-  <br>
+    <br>
     <div id="Upgrades">
-        <div class="col" id="Headline">
+     <div class="row align-items-left">
+        <div class="col-1" id="Headline">
             Upgrades
             </div>
+            
+        <div class="col-11">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20px" height="20px" fill="turquoise" style="padding-bottom:3px;"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c17.67 0 32 14.33 32 32c0 17.67-14.33 32-32 32S224 177.7 224 160C224 142.3 238.3 128 256 128zM296 384h-80C202.8 384 192 373.3 192 360s10.75-24 24-24h16v-64H224c-13.25 0-24-10.75-24-24S210.8 224 224 224h32c13.25 0 24 10.75 24 24v88h16c13.25 0 24 10.75 24 24S309.3 384 296 384z"/></svg>
+        Fulltune ist inklusive Federung. Die meisten Kunden wollen aber keine Federung eingebaut haben. Extra fragen!
+        </div>
+        </div>
+        <br>
+        <div class="row align-items-left">
+        <div class="col">
+            <input type="checkbox" id="fulltune" name="fulltune">
+            <label for="fulltune">&nbsp;Fulltune (Bremsen, (Federung), Getriebe, Motor, Turbo)</label>
+            <br>
 
+           
+            
+            <input type="checkbox" id="panzerung" name="panzerung">
+            <label for="panzerung">&nbsp;Panzerung</label>
+            <br>
+
+        </div>
+        <div class="col">
         <input type="checkbox" id="bremsen" name="bremsen">
         <label for="bremsen">&nbsp;Bremsen</label>
         <br>
@@ -107,24 +129,22 @@
         <input type="checkbox" id="motor" name="motor">
         <label for="motor">&nbsp;Motor</label>
         <br>
+         <input type="checkbox" id="turbo" name="turbo">
+            <label for="turbo">&nbsp;Turbo</label>
+            <br>
+        </div>        
 
-        <input type="checkbox" id="turbo" name="turbo">
-        <label for="turbo">&nbsp;Turbo</label>
-        <br>
-
-        <input type="checkbox" id="fulltune" name="fulltune">
-        <label for="fulltune">&nbsp;Fulltune (Bremsen, (Federung), Getriebe, Motor, Turbo)</label>
-        <br>
-
-        <input type="checkbox" id="panzerung" name="panzerung">
-        <label for="panzerung">&nbsp;Panzerung</label>
-        <br>
+    </div>
     </div>
         <br>
     <div id="Basics">
         <div class="col" id="Headline">
                 Basics
             </div>
+        <br>
+        <div class="row align-items-left">
+        <div class="col">
+
         <input type="checkbox" id="prim" name="prim">
         <label for="prim">&nbsp;Lackierung Prim.</label>
         <br>
@@ -133,8 +153,9 @@
         <br>
         <input type="checkbox" id="perleffekt" name="perleffekt">
         <label for="perleffekt">&nbsp;Perleffekt</label>
-        <br><br>
-
+        <br>
+        </div>
+        <div class="col">
         <input type="checkbox" id="unterboden" name="unterboden">
         <label for="unterboden">&nbsp;Unterbodenbeleuchtung</label>
         <br>
@@ -148,6 +169,8 @@
         <input type="checkbox" id="nummernschild" name="nummernschild">
         <label for="nummernschild">&nbsp;Nummernschild (Farbe)</label>
         <br>
+        </div>
+        </div>
     </div>
     <br>
     <div id="Lowrider">
@@ -231,7 +254,7 @@
         </div>
             <hr>
     </div>
-    <br>
+        <br>
         <div id="Kosmetik">
             <div class="col" id="Headline">
                 Kosmetisches
@@ -266,8 +289,8 @@
         </div>
         <br>
         <div id="Custom">
-        <input type="checkbox" id="kennzeichen5" name="kennzeichen5">
-        <label for="kennzeichen5">&nbsp;Custom-Kennzeichen</label>
+            <input type="checkbox" id="kennzeichen5" name="kennzeichen5">
+            <label for="kennzeichen5">&nbsp;Custom-Kennzeichen</label>
         </div>
         <br>
         <div id="Kunde">

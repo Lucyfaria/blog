@@ -12,11 +12,13 @@ $shadow: drop-shadow(8px 8px 8px rgba(0, 0, 0, 0.25));
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 22px;
     line-height: 29px;
     color: $textcolor;
 }
-
+.table {
+    color: $textcolor;
+}
 #Headline{
     font-family: 'Inter';
     font-style: normal;
