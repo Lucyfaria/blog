@@ -35,7 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_12_125041) do
     t.boolean "superadmin", default: false, null: false
     t.boolean "admin", default: false, null: false
     t.boolean "employee", default: false, null: false
-    t.boolean "intern", default: false, null: false
+    t.boolean "intern", default: false, null: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
