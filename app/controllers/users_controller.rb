@@ -33,11 +33,11 @@ class UsersController < ApplicationController
     private
   
     # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
+    # def set_user
+    #   @user = User.find(params[:username])
   
-      rescue ActiveRecord::RecordNotFound  
-      flash[:notice] = "User record does not exist"
-      redirect_to users_url
-    end
+    #   rescue ActiveRecord::RecordNotFound  
+    #   flash[:notice] = "User record does not exist"
+    #   redirect_to users_url
+    # end
   end

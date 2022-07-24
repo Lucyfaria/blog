@@ -24,3 +24,8 @@ devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
 end
 --> for devise_sign_out
+
+./bin/dev to start server with react
+
+Use attribute className instead of class in JSX:
+const myElement = <h1 className="myclass">Hello World</h1>;
