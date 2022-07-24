@@ -23,5 +23,6 @@ const Fahrzeugkategorie = (
 
 ReactDOM.render(Fahrzeugkategorie, document.getElementById('Fahrzeugkategorie'));
 
+//TODO: read price from db. change price acc. to Fahrzeugkategorie
 const Upgrades = (`Turbo`);
 ReactDOM.render(Upgrades, document.getElementById('Upgrades'))
