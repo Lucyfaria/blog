@@ -15,7 +15,7 @@
         </li>
         <% if current_user.try(:admin?)%>
         <li class="nav-item">
-            <%= link_to 'Mitarbeitermanagement', users_new_ma_path, class:"nav-link"%>
+            <%= link_to 'Mitarbeitermanagement', users_employees_path, class:"nav-link"%>
         </li>
         <% end%>
         <li class="nav-item">

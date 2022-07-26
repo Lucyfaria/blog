@@ -1,21 +1,28 @@
-import React,{useState} from "react";
+import React,{useState, useEffect} from "react";
 import * as ReactDOM from "react-dom";
 
 const Fahrzeugkategorie: React.FC = () => {
-        
-    
-    const [count,setCount] = useState(0);
+
+let [count,setCount] = useState(0);
     const iterate = () => {
-        setCount(5)
+        setCount(count++)
         console.log('hellow')
     }
 
+    //Debugging 
+    useEffect (() => {
+        console.log(count);
+    },[count])
+
     return (
-    <React.Component>
+    <div>
 
                             <div className ="row align-items-center">
                                 <div className ="col">
                             <button onClick={iterate}>Buttoni</button>
+                            </div>
+                            <div className ="col">
+                            <text>{count}</text>
                             </div>
                             <div className ="col">
                                 <input type="radio" id="normal" name="drone"></input>
@@ -34,10 +41,10 @@ const Fahrzeugkategorie: React.FC = () => {
                                 <label for="heli">&nbsp;Helikopter | Flugzeuge | Boote </label>
                             </div>
                             </div>
-                            </React.Component>)};
+                            </div>)};
 
-ReactDOM.render(Fahrzeugkategorie, document.getElementById('Fahrzeugkategorie'));
-<Fahrzeugkategorie/>
-//TODO: read price from db. change price acc. to Fahrzeugkategorie: FC functional component
-const Upgrades = (`Turbo`);
-ReactDOM.render(Upgrades, document.getElementById('Upgrades'))
+function Car() {
+    return <h2>Hi, I am a Car!</h2>;
+  }
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(<Fahrzeugkategorie />);
