@@ -3,7 +3,7 @@ class HomeController < ApplicationController
     
   end
 
-  def pricelist
-    @fractions = Fraction.all
-  end
+  # def pricelist
+  #   @fractions = Fraction.all
+  # end
 end

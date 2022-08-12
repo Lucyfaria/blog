@@ -4,7 +4,19 @@ class UsersController < ApplicationController
     end
 
     def show
-        @users = User.all
+        # @users = User.all
+    end
+
+    def update
+        respond_to do |format|
+            if @users.update(fraction_params)
+            format.html { redirect_to user_url(@user), notice: "Mitarbeiter wurde erfolgreich bearbeitet." }
+            format.json { render :show, status: :ok, location: @user }
+            else
+            format.html { render :edit, status: :unprocessable_entity }
+            format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
+     end
     end
     # Set the user record before each action
     # before_action :set_user, only: [:show, :edit, :update, :destroy]

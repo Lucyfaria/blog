@@ -4,6 +4,13 @@ Rails.application.routes.draw do
   resources :users
   resources :fractions
 
+  namespace :api do
+    namespace :v1 do
+      get 'home/index'
+      post 'home/create'
+      delete 'home/:id', to: 'home#destroy'
+    end
+  end
   # get 'fractions'
   root 'home#index'
   
@@ -12,7 +19,7 @@ Rails.application.routes.draw do
     get '/users/sign_in' => 'devise/sessions#new'
     get '/users/sign_out' => 'devise/sessions#destroy'
     #TODO: Ausloggen reparieren
-    get '/users/employees' => 'users#show'
+    # get '/users/employees' => 'users#index'
     
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

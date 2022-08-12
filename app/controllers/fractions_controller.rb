@@ -1,5 +1,6 @@
 class FractionsController < ApplicationController
   before_action :set_fraction, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
 
   # GET /fractions or /fractions.json
   def index
@@ -53,7 +54,7 @@ class FractionsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to fractions_url, notice: "Fraktion wurde erfolgreich gelöscht." }
-      format.json { head :no_content }
+      format.json { render json: Fraction.all, status: :ok}
     end
   end
 
@@ -65,6 +66,6 @@ class FractionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def fraction_params
-      params.require(:fraction).permit(:name, :primary, :secondary, :pearl, :smoke, :lights, :contract, :plate)
+      params.require(:fraction).permit(:name, :primary, :secondary, :pearl, :smoke, :lights, :contract, :plate, :id)
     end
 end
