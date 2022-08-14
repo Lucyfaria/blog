@@ -58,12 +58,11 @@ export const fetchFractionsAsync = createAsyncThunk(
     'fractions/fetchFractions',
     async () => {
         const response = await fetchFractions();
-        console.log(response);
         return response;
     }
 )
 
-//TODO: erklären
+//TODO: name of slice, was passiert mit den Daten/state
 export const fractionSlice = createSlice({
     name: "fractions",
     initialState,
@@ -75,6 +74,7 @@ export const fractionSlice = createSlice({
                     draftState.status = Statuses.Loading;
                 })
             })
+            //missed the action the whole time
             .addCase(fetchFractionsAsync.fulfilled, (state, action) => {
                 return produce(state, (draftState) => {
                     draftState.fractions = action.payload;

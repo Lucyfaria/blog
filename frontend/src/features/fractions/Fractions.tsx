@@ -24,19 +24,36 @@ function Fractions() {
               <div className="card-body">
                   <h3>{status}</h3>
                   {/** from goes here */}
+                  <table className="table table-dark table-striped table-hover">
+                  <thead>
+                <tr>
+            <td>Name</td>
+            <td>Primär</td>
+            <td>Sekundär</td>
+            <td>Perleffekt</td>
+            <td>Reifenqualm</td>
+            <td>Unterbodenbeleuchtung</td>
+            <td>Vertrag bis</td>
+            <td>inkl. Kennzeichen</td>
+            <td>Aktualisiert am</td>
+            </tr>
+            </thead>
                   {fractions && fractions.length > 0 && fractions.map(fraction => {
 
-                      return <div key={fraction.id} style={{margin:"5em"}}>
+                      return <tbody>
+                          <tr>
                           <Fraction 
                             dispatch={dispatch}
                             fraction = {fraction}
-                        
                           />
-                      
-                  </div>
+                          </tr>
+                          </tbody>
+                  
                    })}
+                       </table>
+                  </div>
           </div>
-          </div>
+        
       }
     return (
       <div><h1>Fraktionen</h1>
