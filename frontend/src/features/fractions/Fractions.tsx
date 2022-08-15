@@ -1,6 +1,7 @@
 import React,{ useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import Fraction from "./Fraction";
+import FractionForm from "./FractionForm";
 import { fetchFractionsAsync, selectFractions, selectStatus, Statuses } from "./fractionSlice";
 
 function Fractions() {
@@ -22,7 +23,6 @@ function Fractions() {
       } else {
           contents = <div>
                   <h3>{status}</h3>
-                  {/** form goes here */}
                   <table className="table table-info table-bordered table-striped table-hover">
                   <thead className="table-primary">
                     <tr>
@@ -59,6 +59,7 @@ function Fractions() {
     return (
       <div><h1>Fraktionen</h1>
         {contents}
+        <FractionForm />
       </div>
     )
   }

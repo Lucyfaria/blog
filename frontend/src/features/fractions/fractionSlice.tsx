@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import produce from "immer";
 import { RootState } from "../../app/store";
-import { fetchFractions } from './fractionAPI';
+import { createFraction, fetchFractions } from './fractionAPI';
 
 export enum Statuses {
     Initial = "Nicht geladen",
@@ -9,6 +9,20 @@ export enum Statuses {
     UpToDate = "Aktuell",
     Deleted = "Gelöscht",
     Error = "Error"
+}
+
+export interface FractionFormData{
+    fraction: {
+        id?: string;
+        name: string,
+        primary: string,
+        secondary: string,
+        pearl: string,
+        smoke: string,
+        lights: string,
+        contract: any,
+        plate: any,
+      }
 }
 // Beschreibung EINE Fraktion
 export interface FractionState{
@@ -19,8 +33,8 @@ export interface FractionState{
     pearl?: string;
     smoke?: string;
     lights?: string;
-    // contract?: any;
-    // plate?: any;
+    contract?: any;
+    plate?: any;
     created_at?: any;
     updated_at?: any;
     // "url": "http://localhost:3000/fractions/1.json"
@@ -42,8 +56,8 @@ const initialState: FractionsState = {
         pearl: "",
         smoke: "",
         lights: "",
-        // contract: "",
-        // plate: false,
+        contract: "",
+        plate: false,
         created_at: "",
         updated_at: "",
         }
@@ -58,6 +72,15 @@ export const fetchFractionsAsync = createAsyncThunk(
     'fractions/fetchFractions',
     async () => {
         const response = await fetchFractions();
+        return response;
+    }
+)
+
+export const createFractionAsync = createAsyncThunk(
+    //api/function
+    'fractions/createFraction',
+    async (payload: FractionFormData) => {
+        const response = await createFraction(payload);
         return response;
     }
 )
@@ -82,6 +105,22 @@ export const fractionSlice = createSlice({
                 })
             })
             .addCase(fetchFractionsAsync.rejected, (state) => {
+                return produce(state, (draftState) => {
+                    draftState.status = Statuses.Error;
+                })
+            })
+            .addCase(createFractionAsync.pending, (state) => {
+                return produce(state, (draftState) => {
+                    draftState.status = Statuses.Loading;
+                })
+            })
+            .addCase(createFractionAsync.fulfilled, (state, action) => {
+                return produce(state, (draftState) => {
+                    draftState.fractions.push(action.payload);
+                    draftState.status = Statuses.UpToDate;
+                })
+            })            
+            .addCase(createFractionAsync.rejected, (state) => {
                 return produce(state, (draftState) => {
                     draftState.status = Statuses.Error;
                 })
