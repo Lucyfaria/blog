@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-function Fraction(props: any){
-
+function Fraction(props:any){
     const [name, setName] = useState(props.fraction.name)
     const [primary, setPrimary] = useState(props.fraction.primary)
     const [secondary, setSecondary] = useState(props.fraction.secondary)
@@ -11,13 +10,10 @@ function Fraction(props: any){
     const [contract, setContract] = useState(props.fraction.contract)
     const [plate, setPlate] = useState(props.fraction.plate)
     const [updated_at, setUpdated_at] = useState(props.fraction.updated_at)
-    // const nameElement = <h2 className='name text-start'>{props.fraction.name}</h2>;
-    // const primaryElement = <h2 className='primary text-start'>{props.fraction.primary}</h2>;
     return(
-        <div>
-           
+
+        <tr>
             
-           
                     <td>{name}</td>
                     <td>{primary}</td>
                     <td>{secondary}</td>
@@ -27,12 +23,9 @@ function Fraction(props: any){
                     <td>{contract}</td>
                     <td>{plate}</td>
                     <td>{updated_at}</td>
-              
-               
-           
-            
-            {/* {primaryElement} */}
-        </div>
+                    <td>Bearbeiten</td>
+
+            </tr>
     )
 }
 

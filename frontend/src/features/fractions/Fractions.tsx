@@ -5,8 +5,8 @@ import { fetchFractionsAsync, selectFractions, selectStatus, Statuses } from "./
 
 function Fractions() {
     const fractions = useAppSelector(selectFractions);
-    console.log(fractions);
     const status = useAppSelector(selectStatus);
+
     //Lädt den State von den Componenten
     const dispatch = useAppDispatch();
 
@@ -20,39 +20,40 @@ function Fractions() {
       if (status !== Statuses.UpToDate) {
           contents = <div>{status}</div>
       } else {
-          contents = <div className="card">
-              <div className="card-body">
+          contents = <div>
                   <h3>{status}</h3>
-                  {/** from goes here */}
-                  <table className="table table-dark table-striped table-hover">
-                  <thead>
-                <tr>
-            <td>Name</td>
-            <td>Primär</td>
-            <td>Sekundär</td>
-            <td>Perleffekt</td>
-            <td>Reifenqualm</td>
-            <td>Unterbodenbeleuchtung</td>
-            <td>Vertrag bis</td>
-            <td>inkl. Kennzeichen</td>
-            <td>Aktualisiert am</td>
-            </tr>
-            </thead>
+                  {/** form goes here */}
+                  <table className="table table-info table-bordered table-striped table-hover">
+                  <thead className="table-primary">
+                    <tr>
+                      <th>Name</th>
+                      <th>Primär</th>
+                      <th>Sekundär</th>
+                      <th>Perleffekt</th>
+                      <th>Reifenqualm</th>
+                      <th>Unterbodenbeleuchtung</th>
+                      <th>Vertrag bis</th>
+                      <th>inkl. Kennzeichen</th>
+                      <th>Aktualisiert am</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody className="table-group-divider">
                   {fractions && fractions.length > 0 && fractions.map(fraction => {
-
-                      return <tbody>
-                          <tr>
+                      return (
+                        
                           <Fraction 
                             dispatch={dispatch}
                             fraction = {fraction}
+                            key = {fraction.id}
                           />
-                          </tr>
-                          </tbody>
-                  
+                         
+                         )
                    })}
+                   </tbody>
                        </table>
                   </div>
-          </div>
+
         
       }
     return (
