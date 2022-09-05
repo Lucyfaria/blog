@@ -45,13 +45,14 @@ function Fractions() {
                           <Fraction 
                             dispatch={dispatch}
                             fraction = {fraction}
+                            // date = {fraction.updated_at}
                             key = {fraction.id}
                           />
-                         
                          )
                    })}
                    </tbody>
-                       </table>
+                  </table>
+                 
                   </div>
 
         

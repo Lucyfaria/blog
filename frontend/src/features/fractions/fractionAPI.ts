@@ -25,7 +25,7 @@ export async function createFraction(payload: FractionFormData) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        fraction
+       fraction
       })
     })
       .then((response) => response.json())

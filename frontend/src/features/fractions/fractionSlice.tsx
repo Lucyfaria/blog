@@ -72,6 +72,7 @@ export const fetchFractionsAsync = createAsyncThunk(
     'fractions/fetchFractions',
     async () => {
         const response = await fetchFractions();
+        console.log(response)
         return response;
     }
 )

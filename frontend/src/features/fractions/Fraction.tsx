@@ -10,6 +10,8 @@ function Fraction(props:any){
     const [contract, setContract] = useState(props.fraction.contract)
     const [plate, setPlate] = useState(props.fraction.plate)
     const [updated_at, setUpdated_at] = useState(props.fraction.updated_at)
+    const locale_updated = new Date(updated_at);
+    console.log((contract))
     return(
 
         <tr>
@@ -22,10 +24,11 @@ function Fraction(props:any){
                     <td>{lights}</td>
                     <td>{contract}</td>
                     <td>{plate}</td>
-                    <td>{updated_at}</td>
+                    <td>{locale_updated.toLocaleDateString()}</td>
                     <td>Bearbeiten</td>
 
             </tr>
+            
     )
 }
 
