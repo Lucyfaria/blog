@@ -1,0 +1,127 @@
+// @keyframes "slideIn" {
+// 	from {
+// 		transform: translateX(100%);
+// 	}
+// 	to {
+// 		transform: translateX(0%);
+// 	}
+// }
+$default-width: 320px;
+$success-color: #3c763d;
+$warning-color: #c77e00;
+$info-color: #31708f;
+$danger-color: #a94442;
+$default-shadow-opacity: 0.9;
+
+.container {
+	font-family: inherit;
+  position: fixed;
+  width: $default-width;
+  padding: 0 10px 10px 10px;
+  z-index: 9998;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: auto;
+	&:not(:last-child) {
+		margin-bottom: 8px;
+	}
+}
+.container.shrink {
+	max-height: 0;
+}
+.notification {
+	// max-width: 430px;
+	// overflow: hidden;
+	// padding: 12px 48px 12px 12px;
+	// z-index: 99;
+	// display: grid;
+	// grid-auto-flow: column;
+	// grid-gap: 24px;
+	// font-weight: bold;
+	// position: relative;
+	// transition: transform 0.3s ease-out;
+	// color: #fff;
+  background-color: #f8f8f8;
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 2px;
+  font-size: 13px;
+  margin: 10px 0 0;
+  padding: 10px;
+  display: block;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  opacity: 0.9; // notification-visible
+  transition: 0.3s ease-in-out;
+  transform: translate3d(0, 0, 0);
+  -webkit-fransform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
+	&:not(:last-child) {
+		margin-bottom: 8px;
+	}
+	.closeButton {
+		position: absolute;
+		top: 12px;
+		right: 12px;
+		background: transparent;
+		padding: 0;
+		border: none;
+		cursor: pointer;
+		color: rgb(0, 0, 0);
+    //SI
+    // cursor: pointer;
+    // font-family: Arial;
+    // font-size: 17px;
+    // position: absolute;
+    // top: 4px;
+    // right: 5px;
+    // line-height: 15px;
+    // background-color: #dededf;
+    // color: #000000;
+    // // border-radius: 50%;
+    // width: 14px;
+    // height: 14px;
+    // font-weight: bold;
+    // text-align: center
+	}
+}
+.notification.info {
+	border-top: 2px solid $info-color;
+    color: #41555d;
+    box-shadow: 0 0 1px rgba($info-color, $default-shadow-opacity);
+    -webkit-box-shadow: 0 0 1px rgba($info-color, $default-shadow-opacity);
+    -moz-box-shadow: 0 0 1px rgba($info-color, $default-shadow-opacity);
+}
+.notification.success {
+	border-top: 2px solid $success-color;
+  color: #4b583a;
+  box-shadow: 0 0 1px rgba($success-color, $default-shadow-opacity);
+  -webkit-box-shadow: 0 0 1px rgba($success-color, $default-shadow-opacity);
+  -moz-box-shadow: 0 0 1px rgba($success-color, $default-shadow-opacity);
+}
+.notification.warning {
+	border-top: 2px solid $warning-color;
+    color: #5a5343;
+    box-shadow: 0 0 1px rgba($warning-color, $default-shadow-opacity);
+    -webkit-box-shadow: 0 0 1px rgba($warning-color, $default-shadow-opacity);
+    -moz-box-shadow: 0 0 1px rgba($warning-color, $default-shadow-opacity);
+}
+.notification.error {
+	border-top: 2px solid $danger-color;
+  color: #412f2f;
+  box-shadow: 0 0 1px rgba($danger-color, $default-shadow-opacity);
+  -webkit-box-shadow: 0 0 1px rgba($danger-color, $default-shadow-opacity);
+  -moz-box-shadow: 0 0 1px rgba($danger-color, $default-shadow-opacity);
+}
+.notification.slideIn {
+	animation-name: slideIn;
+	animation-duration: 0.3s;
+	animation-timing-function: ease-in-out;
+}
+.notification.slideOut {
+	transform: translateX(150%);
+	flex: 0;
+}
